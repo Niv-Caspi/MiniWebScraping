@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBay Products Data Scraping Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>eBay Products Data Scraping Tool</h1>
+    <form method="post" action="/" onsubmit="return validateForm()">
+        <div id="error" class="error">{{ error }}</div>
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url" required>
+        <label for="sort_by">Sort By:</label>
+        <select id="sort_by" name="sort_by" onchange="togglePriceFields()">
+            <option value="none">None</option>
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+        </select>
+        <div id="price_fields">
+            <label for="min_price">Min Price:</label>
+            <input type="text" id="min_price" name="min_price">
+            <label for="max_price">Max Price:</label>
+            <input type="text" id="max_price" name="max_price">
+        </div>
+        <input type="submit" value="Scrape">
+    </form>
+    <h2>Scraped Products</h2>
+    <ul>
+        {% for product in products %}
+        <li>
+            <strong>{{ product.name }}</strong>
+            <span>Price: {{ product.price }}</span>
+            <span>Rating: {{ product.rating }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
