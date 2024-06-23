@@ -4,7 +4,7 @@ This tool allows you to scrape product data from eBay by providing a URL to the 
 How to Use
 Clone or download this repository to your local machine.
 Install the required dependencies by running pip install -r requirements.txt.
-Run the Flask application by executing python app.py in your terminal.
+Run the Flask application by executing python scrape.py in your terminal.
 Open your web browser and navigate to http://127.0.0.1:8000.
 Enter the URL of the eBay product listing page and click "Scrape".
 Optionally, you can sort the scraped products by name or price range.
